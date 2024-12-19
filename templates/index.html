@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Database Management</h1>
+
+    <!-- Table Selection and Data Display Section -->
+    <div id="queries">
+        <h2>Query Records</h2>
+        <label for="table-select">Select Table:</label>
+        <select id="table-select">
+            <option value="items">Items</option>
+            <option value="busEntities">Business Entities</option>
+            <option value="billOfMaterials">Bill of Materials</option>
+            <option value="supplierDiscounts">Supplier Discounts</option>
+            <option value="supplyUnitPricing">Supply Unit Pricing</option>
+            <option value="manufDiscounts">Manufacturer Discounts</option>
+            <option value="manufUnitPricing">Manufacturer Unit Pricing</option>
+            <option value="shippingPricing">Shipping Pricing</option>
+            <option value="customerDemand">Customer Demand</option>
+            <option value="supplyOrders">Supply Orders</option>
+            <option value="manufOrders">Manufacturer Orders</option>
+            <option value="shipOrders">Shipping Orders</option>
+        </select>
+        
+        <!-- Button to fetch records -->
+        <button onclick="fetchTableData()">Fetch Records</button>
+
+        <!-- Div to display the fetched table records -->
+        <div id="table-result"></div>
+
+        <!-- Button to show "Create" form -->
+        <button onclick="showCreateForm()">Create Record</button>
+
+        <!-- Create Record Form (hidden by default) -->
+        <div id="create-form" style="display:none;">
+            <h3>Create New Record</h3>
+            <form id="create-form-content">
+                <!-- Dynamic fields will be inserted here based on the table -->
+                <div id="create-form-fields"></div>
+                <button type="submit">Create Record</button>
+            </form>
+        </div>
+
+        <!-- Edit Record Form (hidden by default) -->
+        <div id="edit-form" style="display:none;">
+            <h3>Edit Record</h3>
+            <form id="edit-form-content">
+                <!-- Dynamic fields will be inserted here based on the selected record -->
+                <div id="edit-form-fields"></div>
+                <button type="submit">Update Record</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
